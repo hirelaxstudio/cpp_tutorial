@@ -18,7 +18,7 @@
 **Not:** *Decimal sayı sistemi*, 0'dan 9'a kadar sayıları tutar. Ama programlamada kullanılan *decimal*, decimal sayı sisteminden farklı olarak floating-point sayıları da tutar. (10/3)*3 gibi işlemler float data type kullanılarak yapılmaya çalışıldığında asla doğru sonucu vermez. Buna **float sapması** denir. *Float* **32 bit** data tutabildiği için bu sınırı aşınca işlemler yanlış sonucu verir. Aynı durum *double* için de geçerlidir. double **64 bit** data tutabilir ve bu sınırı aşınca işlemler sapıtır. *decimal* data type'ı C++ desteklemez. *decimal* data type, **128 bit** data tutabildiği için sapma çok azdır. Bu yüzden bankacılık gibi işlerdeki kritik hesaplamalarda *decimal* data type kullanılır.
 
 # Character Type
-Character Type tanımlarken tek tırnak kullanılır (char b = 'f') çünkü çift tırnak string data'yı temsil eder. [ASCII karakter kümesi](https://www.w3schools.com/charsets/ref_html_ascii.asp)ndeki karakterlerin decimal karşılıklarını kullanarak da karakter elde edilebilir. Yani:
+Character Type tanımlarken tek tırnak kullanılır (`char b = 'f'`) çünkü çift tırnak string data'yı temsil eder. [ASCII karakter kümesi](https://www.w3schools.com/charsets/ref_html_ascii.asp)ndeki karakterlerin decimal karşılıklarını kullanarak da karakter elde edilebilir. Yani:
 ```cpp
 char  ascii_trick_1 = 'A';
 char  ascii_trick_2 = 65;
@@ -36,11 +36,11 @@ char: 65 65
 **Dikkat:** Buradan sonraki kısımlarda, *(signed) char* örneğindeki gibi parantez içinde bazı kavramlar göreceksiniz. Bu kavramları parantez içinde yazmam, "Bunu yazmasan da olur." anlamına gelmektedir. Ama yine de yazmakta yarar var çünkü compiler kodu yorumlarken yanılabilir. Bu yüzden compiler'ın net bir anlam çıkarması için parantez içindekileri yazmamazlık yapmayın.
 | Type | Açıklaması |
 |--|--|
-| char | En fazla 8 bit (1 byte) boyutunda data depolayabilir. Bu data'ların ASCII tablosuna göre [bytecode](https://en.wikipedia.org/wiki/Bytecode) karşılığını verir. |
-| char16_t | En fazla 16 bit (2 byte) data depolayabilir. Bu dataların UNICODE encoded UTF-16 tablosuna göre [bytecode](https://en.wikipedia.org/wiki/Bytecode) karşılığını verir. |
-| char32_t | En fazla 32 bit (4 byte) data depolayabilir. Bu dataların UNICODE encoded UTF-32 tablosuna göre [bytecode](https://en.wikipedia.org/wiki/Bytecode) karşılığını verir. |
-| wchar_t | wchar_t, desteklenen en büyük karakter kümesini temsil eder ve UTF-16LE ile kodlanmış UNICODE karakterlerini kullanır. Bu yüzden 1 bit'lik bir karakter bile diğer her karakter gibi 16 ya da 32 bit (bir wide character) yer kaplıyor. Bir programı başka bir dile döndürmek istiyorsan, o programda wchar_t kullanmak avantajlıdır. |
-| string | `#include <string>` komutuyla string kütüphanesini programa ekledikten sonra kullanılabilir. Çift tırnak içinde belirtilmiş text'leri (karakter dizilerini yani character array'ları) tutar. Yani string, `char[]` mantığıyla çalışır *(array'lar kısaca: aynı veri türündeki data'ları tutan bir liste.)*. |
+| `char` | En fazla 8 bit (1 byte) boyutunda data depolayabilir. Bu data'ların ASCII tablosuna göre [bytecode](https://en.wikipedia.org/wiki/Bytecode) karşılığını verir. |
+| `char16_t` | En fazla 16 bit (2 byte) data depolayabilir. Bu dataların UNICODE encoded UTF-16 tablosuna göre [bytecode](https://en.wikipedia.org/wiki/Bytecode) karşılığını verir. |
+| `char32_t` | En fazla 32 bit (4 byte) data depolayabilir. Bu dataların UNICODE encoded UTF-32 tablosuna göre [bytecode](https://en.wikipedia.org/wiki/Bytecode) karşılığını verir. |
+| `wchar_t` | `wchar_t`, desteklenen en büyük karakter kümesini temsil eder ve UTF-16LE ile kodlanmış UNICODE karakterlerini kullanır. Bu yüzden 1 bit'lik bir karakter bile diğer her karakter gibi 16 ya da 32 bit (bir wide character) yer kaplıyor. Bir programı başka bir dile döndürmek istiyorsan, o programda `wchar_t` kullanmak avantajlıdır. |
+| `string` | `#include <string>` komutuyla string kütüphanesini programa ekledikten sonra kullanılabilir. Çift tırnak içinde belirtilmiş text'leri (karakter dizilerini yani character array'ları) tutar. Yani string, `char[]` mantığıyla çalışır *(array'lar kısaca: aynı veri türündeki data'ları tutan bir liste.)*. |
 
 # Integer Type
 **Signed (işaretli)** ve **unsigned (işaretsiz)** prefix'leri (ön ekleri), o data type'ın sadece pozitif değerler mi alacağını yoksa hem pozitif hem de negatif değerler mi alacağını belirler. Signed prefix'i, bir bit'i sayının negatif ya da pozitif olduğunu belirtmek için kullanırken unsigned bunu yapmaz. Bu yüzden unsigned prefix'ine sahip bir data type, daha büyük pozitif değerleri ifade edebilir.
@@ -71,12 +71,12 @@ Decimal type sayıları ifade eder. Yani 3.14 gibi kesirli sayıları ifade eder
 # Boolean Type
 Boolean değerler True (1) ve False (0) olmak üzere iki tanedir. 1 bit ile ifade edilirler. Program yazarken True ya da False keyword'lerini kullansak da, bilgisayar bu değerleri 1 ve 0 olarak işler. Örnek:
 ```cpp
-bool isCodingFun = true;
-bool isFishTasty = false;
+bool BooleanType1 = true;
+bool BooleanType2 = false;
 ```
 
 # Void Type
-void data type, "untyped (tipsiz)" veya "type not specified (tipi belirtilmemiş)" olarak ifade edebileceğimiz, hiçbir veri türü ile ilişkilendirilmemiş data type anlamına gelir. Bir value'nun veya variable'ın type'ını bilmiyorsanız veya bir variable'ın data type'ını daha sonra belirlemek istiyorsanız veya farklı data type'lar üzerinde çalışmanız gerekiyorsa kullanabileceğiniz bir data type çeşididir.
+void data type, **"untyped (tipsiz)"** veya **"type not specified (tipi belirtilmemiş)"** olarak ifade edebileceğimiz, hiçbir veri türü ile ilişkilendirilmemiş data type anlamına gelir. Bir value'nun veya variable'ın type'ını bilmiyorsanız veya bir variable'ın data type'ını daha sonra belirlemek istiyorsanız veya farklı data type'lar üzerinde çalışmanız gerekiyorsa kullanabileceğiniz bir data type çeşididir.
 ```cpp
 void vrb; // declare vrb
 ```
@@ -91,10 +91,10 @@ int  *ptr = NULL;
 # typedef Declarations
 `typedef` kullanarak mevcut bir tür için yeni bir ad oluşturabilirsiniz. Örnek:
 ```cpp
-typedef int feet; 
-feet a = 1;
+typedef int sayi; 
+sayi a = 1;
 ```
-Burada `int` data type'ının adı `feet` olarak değiştirildi ve artık `int a = 1;` şeklinde define işlemi yapmak yerine `feet a = 1;` define işlemi yapılır.
+Burada `int` data type'ının adı `sayi` olarak değiştirildi ve artık `int a = 1;` şeklinde define işlemi yapmak yerine `sayi a = 1;` define işlemi yapılır.
 
 # Enumerated Types
 *Enumerated type (enumeration)*, integral constant'lardan oluşan used-defined (kullanıcı tanımlı) bir data type'dır. `enum` keyword'ü ile ifade define edilir.

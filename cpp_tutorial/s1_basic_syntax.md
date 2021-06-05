@@ -17,30 +17,31 @@
 ```
 
 # Kavramlar
-***Object:*** Objects (objelerin) states (durumları) ve behaviors (davranışları) vardır. Örneğin bir köpeğin renk, isim, cins vb. states; koşma, havlama, yeme vb. ise behaviors’dur. Her class bir object’tir.
+***Object:*** Object'lerin states (durumları) ve behaviors (davranışları) vardır. Örneğin bir köpeğin renk, isim, cins vb. states; koşma, havlama, yeme vb. ise behaviors’dur.
 
-***Class:*** Bir objenin states (durumlarının) ve behaviors (davranışlarının) tutulduğu template'e (şablona) denir.
+***Class:*** Bir objenin states (durumlarının) ve behaviors (davranışlarının) tutulduğu template'e (şablona) denir. Her class bir object’tir.
 
-***Method:*** Temelde bir behavior’dur (davranıştır). Bir class birçok method içerebilir.
+***Method:*** Temelde bir behavior'dur (davranıştır). Bir class, birçok method içerebilir.
 
 ***Keyword:*** Compiler tarafından önceden tanımlanmış kelimelerdir. Bu kelimeleri kullanarak identifier (isimlendirme) işlemi yapılamaz.
 
-***Variables:*** Bir programdaki temel depolama birimidir. Variable denilen şey, bir bellek konumuna verilmiş isimdir. Değişken üzerinde yapılan tüm işlemler o bellek konumunu etkiler. Variable declaration (değişken bildirimi), bir değişkenin ilk kullanımından önce bildirildiği veya tanıtıldığı kısmı ifade eder (Yani int a; tarzı bir kullanımla bir değişkeni bildirmek). Variable definition (değişken tanımı), değişkene bir bellek konumu ve bir değer atandığı kısımdır (Yani bildirilmiş değişkene a = 1; şeklinde değer atamak).
+***Variables:*** Bir programdaki temel depolama birimidir. Variable denilen şey, bir data'nın tutulduğu bellek konumuna verilmiş isimdir. Değişken üzerinde yapılan tüm işlemler o bellek konumundaki data'yı etkiler. Variable declaration (değişken bildirimi), bir değişkenin ilk kullanımından önce bildirildiği veya tanıtıldığı kısmı ifade eder (Yani `int a;` tarzı bir kullanımla bir değişkeni bildirmek). Variable definition (değişken tanımı), değişkene bir bellek konumu ve bir değer atandığı kısımdır (Yani bildirilmiş değişkene `a = 1;` şeklinde değer atamak). Variable initialization, bir variable declaration işleminde, o variable'a geçici değer atama işlemine denir. Bunun sebebi, define edilmeden sadece declare edilmiş variable'ların program içerisinde sıkıntı çıkarabilme potansiyeli olmasıdır. Bu yüzden variable initialization işlemi önemlidir.
+
  - ***Local Variables:*** Bir block, method veya constructor içinde tanımlanan bir değişken, yerel değişken olarak adlandırılır. Bu değişken, bloğun içindeki algoritma çalışmaya başladığında ya da fonksiyon çağırıldığında yaratılır, blocktan çıkıldığında ya da fonksiyondan return edildiğinde yok olur. Bir local variable, sadece bulunduğu blocktan veya bulunduğu buloğun alt bloğundan erişilebilir. Local Variable'ları initialization yapmak zorunludur.
  
  - ***Instance Variables:*** Statik olmayan değişkenlerdir. block, constructor ve herhangi bir methodun dışındaki class’da bildirilir. Bir class’da bildirildiği için, bu variable’lar, class’ın bir object’i oluşturulduğunda oluşturulur ve nesne yok edildiğinde yok edilir. Local variable’ların aksine access specifiers kullanılabilir. Kullanılmazsa default access specifier kullanılır (access specifiers: Bir class’ın class member’larının erişilebilirliğini ayarlamak için kullanılan private, protected ve public gibi keyword’lerdir). Instance Variable'ları initialization yapmak zorunlu değildir. Bu variable’a sadece object oluşturarak erişebilirsin.
 
- - ***Static Variables:*** Class Variables olarak da bilinir. Instance variables ile benzer şekilde bildirilirler. Aralarındaki fark, static keyword kullanılarak bildirilmesidir (örnek: static int a;). Instance variables aksine, kaç tane object oluşturduğumuza bakılmaksızın her class için bir tane static variable kopyasına sahip olursunuz. Yani static variables, bir class’ın tüm objects’de ortaktır. Birinde yaptığınız değişiklik diğer objects yansır. Program yürütmenin başlangıcında oluşturulur ve yürütme sona erdiğinde otomatik olarak yok edilir. Static Variable'ları initialization yapmak zorunlu değildir çünkü default değeri sıfırdır. Eğer static variable'a Instance variable gibi erişirsen (bir object sayesinde), compiler warning message gönderecek ve programı durdurmayacaktır. Compiler, object name'i class name ile değiştirecektir. Static variable’a class adı olmadan erişirsek, compiler otomatik olarak class adını ekleyecektir. Static variables’e doğrudan class adı kullanılarak erişilebilir.
+ - ***Static Variables:*** Class Variables olarak da bilinir. Instance variables ile benzer şekilde bildirilirler. Aralarındaki fark, static keyword kullanılarak bildirilmesidir (örnek: `static int a;`). Instance variables aksine, kaç tane object oluşturduğumuza bakılmaksızın her class için bir tane static variable kopyasına sahip olursunuz. Yani static variables, bir class’ın tüm objects’de ortaktır. Birinde yaptığınız değişiklik diğer object'lere yansır. Program yürütmenin başlangıcında oluşturulur ve yürütme sona erdiğinde otomatik olarak yok edilir. Static Variable'ları initialization yapmak zorunlu değildir çünkü default değeri sıfırdır. Eğer static variable'a Instance variable gibi erişirsen (bir object sayesinde), compiler, warning message gönderecek ve programı durdurmayacaktır. Compiler, object name'i class name ile değiştirecektir. Static variable’a class adı olmadan erişirsek, compiler otomatik olarak class adını ekleyecektir. Static variables’e doğrudan class adı kullanılarak erişilebilir.
 
-**Identifiers:** Tanımlayıcı anlamına gelir. Variable, function, class, module veya herhangi bir user-defined item tanımlamak için kullanılan bir addır. Bir identifier tanımlarken A-Z, a-z, _(alt çizgi), rakam (0-9) kullanımına izin verir. Özel noktalama karakterlerine izin vermez ve keyword'ler identifiers olamaz. C++, büyük - küçük harflere duyarlı bir dildir. Bu yüzden `int VRB` ile `int vrb` farklı iki variable'dır. 
+**Identifiers:** Tanımlayıcı anlamına gelir. Variable, function, class, module veya herhangi bir user-defined item tanımlamak için kullanılan bir addır. Bir identifier tanımlarken A-Z, a-z, `_`(alt çizgi), rakam (0-9) kullanımına izin verir. Özel noktalama karakterlerine izin vermez ve keyword'ler identifiers olamaz. C++, büyük - küçük harflere duyarlı bir dildir. Bu yüzden `int VRB` ile `int vrb` farklı iki variable'dır. 
  
-***Stringizing operator (#):*** Stringizing operator, programın derlenmesi başlamadan önce önişlemciye bu satırların okumasını ve yorumlamasını söyler. Bir kütüphane include etmek (`#include <iostream>`) veya bir fonksiyon define etmek (`#define print(x) ...`) gibi '#' ile başlayan şeylere **preprocessor directives** denir. `#define`'dan sonra yazılan ifadeye **makro** denir. `#define`, C++ standartlarında olamayan herhangi bir şeyi define etmek (tanımlamak) için kullanılır. Örneğin `printf_s()` yazmaktan sıkılıp bu yapıyı `print()` şeklinde kullanmak istiyorsanız, aşağıdaki örnek koddaki gibi bir yola başvurabilirsiniz. '#' işareti tek başına kullanıldığında, kendinden sonra gelen ifadeyi string'e çevirir. Yani kendinden sonraki ifadeleri çift tırnak içine almış gibi davranır. Örneğin:
+***Stringizing operator (`#`):*** Stringizing operator, programın derlenmesi başlamadan önce önişlemciye bu satırların okumasını ve yorumlamasını söyler. Bir kütüphane include etmek (`#include <iostream>`) veya bir fonksiyon define etmek (`#define print(x) ...`) gibi `#` ile başlayan şeylere **preprocessor directives** denir. `#define`'dan sonra yazılan ifadeye **makro** denir. `#define`, C++ standartlarında olamayan herhangi bir şeyi define etmek (tanımlamak) için kullanılır. Örneğin `printf_s()` yazmaktan sıkılıp bu yapıyı `print()` şeklinde kullanmak istiyorsanız, aşağıdaki örnek koddaki gibi bir yola başvurabilirsiniz. `#` işareti tek başına kullanıldığında, kendinden sonra gelen ifadeyi string'e çevirir. Yani kendinden sonraki ifadeleri çift tırnak içine almış gibi davranır. Örneğin:
 ```cpp
 #include <stdio.h>
 #define print(x) printf_s(#x "\n")
 int main() {
-	print(Ekrana direkt basar \n ve string literals işler); // Print Output 1
-	print("Ekrana direkt basar \n ama string literals işlemez"); // Print Output 2
+	print(Ekrana direkt basar \n ve string literal'leri işler); // Print Output 1
+	print("Ekrana direkt basar \n ama string literal'leri işlemez"); // Print Output 2
 }
 ```
 
@@ -72,37 +73,43 @@ int main() {
 ```
 C++'ın ana kütüphanelerindendir. `#include <iostream>` yönergesi, önişlemciye standart C++ kodunun **'header iostream'** olarak bilinen bir bölümünü eklemesini bildirir. Bu bölüm, standart input ve output işlemlerini içerir. Bu işlemler kısaca `cin` ve `cout` komutlarını içerisinde barındıran input ve output komutlarıdır.
 
-## 1.1) Bazı iostream Objeleri
+### 1.1) Bazı iostream Objeleri
+#### 1.1.1)
 ```cpp
 std::cout << "Line 1\nLine End";
-/* Output: (Sonraki satıra geçer)
+```
+**Output:** (Sonraki satıra geçer)
+```
 line 1
 Line End
-*/
 ```
-
+#### 1.1.2)
 ```cpp
 std::cout << "Line 2\n\nLine End";
-/* Output: (Bir satır boşluk bırakıp sonraki satıra geçer)
+```
+**Output:** (Bir satır boşluk bırakıp sonraki satıra geçer)
+```
 line 2
 
 Line End
-*/
 ```
+#### 1.1.3)
 ```cpp
 std::cout << "Line 3" << std::endl << "Line End";
-/* Output: (endl, '\n' ile aynı işleve sahip)
+```
+**Output:** (endl, '\n' ile aynı işleve sahip)
+```
 line 1
 Line End
-*/
 ```
 Satır atlama olayını anlamak için yukarıdaki örneklere bakabilirsiniz.
+#### 1.1.4)
 ```cpp
 int vrb;
 std::cin >> vrb;
 std::cout << vrb;
 ```
-`vrb` adında ve integer data type'ında bir variable (değişken) declare ediyoruz. `std::cin` kullanarak `vrb` içine extraction operator (>>) ile bir değer define ediyoruz. Sonra da o değeri `std::cout` kullanarak insertion operator (<<) ile output olarak veriyor.
+`vrb` adında ve integer data type'ında bir variable (değişken) declare ediyoruz. `std::cin` kullanarak `vrb` içine **extraction operator** (`>>`) ile bir değer define ediyoruz. Sonra da o değeri `std::cout` kullanarak **insertion operator** (`<<`) ile output olarak veriyor.
 
 ***Insertion Operator (<<)***
 Tüm standart C ++ data type’ları için önceden programlanmış insertion operatörü, byte’ları bir output stream object’e (cout) gönderir.
