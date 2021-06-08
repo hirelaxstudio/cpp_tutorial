@@ -404,7 +404,7 @@ goto label;
 ```
 **Not:** `label`, kendinden sonraki bütün kodları çalıştırır. Eğer `goto` statement'i label'in altına tanımlarsanız, infinite loop'a girme riskine girebilirsiniz. Bunu önlemek için `label`'dan sonra herhangi bir yere `return 0;` ekleyerek `main()`'i sonlandırabilirsiniz.
 
-`goto` statement kullanılması önerilmez çünkü programın kontrol akışını (control flow) takibini zorlaştırır. Ama bazı durumlarda işe yarayabilir. Örneğin bir sürü nasted loop içeren bir yapıda, baya içlerdeki bir loop'a `goto` statement ekleyerek, control flow'u en dıştaki loop'u sonlandıran `break` statement'e yönlendirebilirsin. Örnek:
+`goto` statement kullanılması önerilmez çünkü programın kontrol akışını (control flow) takibini zorlaştırır. Ama bazı durumlarda işe yarayabilir. Örneğin bir sürü nested loop içeren bir yapıda, baya içlerdeki bir loop'a `goto` statement ekleyerek, control flow'u en dıştaki loop'u sonlandıran `break` statement'e yönlendirebilirsin. Örnek:
 ```cpp
 for (int i = 0; i < 3; ++i){
 	std::cout << "i" << " ";
